@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành tạo Menu Ngang Dropdown</title>
+    <style type="text/css">
+        /* 1. Reset CSS & Đặt phông chữ cố định cho trang */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+
+        /* 2. Cấu hình phân vùng menu chính (#menu) */
+        #menu {
+            height: 40px;
+            background-color: #333333;
+            border-radius: 4px;
+        }
+
+        #menu ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 3. Xếp các mục menu cha nằm ngang */
+        #menu > ul > li {
+            float: left;
+            position: relative; /* Làm mốc tọa độ cho menu con lồng bên trong */
+        }
+
+        /* 4. Định dạng các đường liên kết (thẻ a) trong menu */
+        #menu a {
+            display: block;
+            width: 130px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* 5. Đổi màu nền sang màu đỏ khi di chuột (hover) vào liên kết */
+        #menu a:hover {
+            background-color: #ff0000;
+        }
+
+        /* 6 & 7. Định dạng danh sách menu con (#menu ul ul) và ẨN mặc định (visibility: hidden) */
+        #menu ul ul {
+            position: absolute;
+            top: 40px;          /* Hiển thị ngay bên dưới menu cha (chiều cao menu cha là 40px) */
+            left: 0;
+            background-color: #333333;
+            visibility: hidden; /* Mặc định ẩn trình đơn con */
+            z-index: 1000;
+        }
+
+        /* Định dạng các mục li trong menu con xếp dọc */
+        #menu ul ul li {
+            float: none;
+        }
+
+        /* 8. Hiển thị menu con khi di chuột vào mục tương ứng ở menu cha */
+        #menu li:hover > ul {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Trình đơn ngang Dropdown</h2>
+
+    <!-- Vùng Menu Ngang -->
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Sản phẩm</a>
+                <!-- Menu con cấp 1 -->
+                <ul>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Máy tính bảng</a></li>
+                    <li><a href="#">Laptop</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dịch vụ</a>
+                <!-- Menu con cấp 1 -->
+                <ul>
+                    <li><a href="#">Bảo hành</a></li>
+                    <li><a href="#">Sửa chữa</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
